@@ -1,0 +1,12 @@
+<div class="movie-container" 
+[ngStyle]="{'background-image': 'url('+ getImageUrl() + ')'}">
+    <div class="date-info" >
+        {{ movie.DispReleaseDate }}
+    </div>
+
+    <div class="vote-info">
+        <span>{{ movie.wtsPerc }}</span>
+        <span>{{ movie.wtsCount }}</span>
+    </div>
+</div>
+<span>{{ movie.EventName }}</span>
