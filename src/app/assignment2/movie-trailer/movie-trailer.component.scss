@@ -1,0 +1,89 @@
+@import '../../../assets/scss/variables';
+
+.movie-detail {
+    background-color: #00000045;
+    padding: 24px;
+    font-size: 0.8rem;
+    position: relative;
+
+    .movie-title {
+        margin-bottom: 0px;
+        font-weight: 100;
+    }
+
+    .movie-lang {
+        font-size: 0.8rem;
+    }
+
+    mat-chip-list {
+        display: block;
+        margin-top: 16px;
+    }
+    mat-basic-chip.mat-chip{
+        border: 1px solid #ddd;
+        margin: 8px;
+        padding: 4px 8px;
+        border-radius: 16px;
+        font-size: 0.7rem;
+        font-weight: 100;
+    }
+
+}
+
+section {
+    width:100%;
+}
+
+section.movie-info-section .movie-info {
+    margin-right: 16px;        
+    font-weight: 100; 
+
+    span {
+        display: block;
+        margin: 4px 0;
+    }
+
+    mat-icon, div {
+        display: inline-block;
+        margin: 0 12px;
+    }
+
+    span.bold{
+        font-weight: 400;
+    }
+
+    span.small{   
+        font-weight: 100;
+        font-size: 0.7rem;
+    }
+}
+
+section.movie-vote-section {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: $sizeFactor*4;
+
+    span {
+        display: block;
+        font-size: 0.7rem;
+        margin: $sizeFactor;
+    }
+
+    div {
+        width: 35%;
+        margin: auto;
+    }
+
+    .vote-yes{
+        color: $bmsSuccess;
+    }
+
+    .vote-maybe {
+        color: $bmsWarn;
+    }
+
+    .vote-no {
+        color: $bmsError;
+    }
+}

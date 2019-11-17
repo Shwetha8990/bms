@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MovieEvent } from 'src/app/models/movies';
 import { BmsService } from '../services/bms.service';
+import { MovieEvent } from '../../models/movie';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,14 +10,13 @@ import { BmsService } from '../services/bms.service';
 export class MovieCardComponent implements OnInit {
 
   @Input() movie: MovieEvent;
+  @Input() selected = false;
   constructor(private bmsService: BmsService) { }
 
   ngOnInit() {
-    console.log(this.movie);
   }
 
   getImageUrl() {
     return this.bmsService.getImageUrl(this.movie.EventCode);
   }
-
 }

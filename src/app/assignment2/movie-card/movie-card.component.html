@@ -1,12 +1,18 @@
-<div class="movie-container" 
-[ngStyle]="{'background-image': 'url('+ getImageUrl() + ')'}">
-    <div class="date-info" >
-        {{ movie.DispReleaseDate }}
-    </div>
-
-    <div class="vote-info">
-        <span>{{ movie.wtsPerc }}</span>
-        <span>{{ movie.wtsCount }}</span>
+<div class="movie-container">
+    <div class="movie-card" [ngClass]="{'selected': selected}">
+        <img [src]="getImageUrl()" loading="lazy" alt="../../../assets/images/placeholder.jpg" onError="this.src='../../../assets/images/placeholder.jpg';"
+            alt="..." />
+        <div class="date-info" mat-app-background>
+            <span [innerHTML]="movie.ShowDate | movieDate"></span>
+        </div>
+        <mat-icon class="play-icon">play_circle_outline</mat-icon>
+        <div class="vote-info">
+            <div class="likes" *ngIf="movie.wtsPerc > 0">
+                <mat-icon color="accent">thumb_up</mat-icon>
+                <span>{{ movie.wtsPerc }}%</span>
+            </div>
+            <div class="votes">{{ movie.wtsCount }} votes</div>
+        </div>
     </div>
 </div>
-<span>{{ movie.EventName }}</span>
+<span class="movie-name">{{ movie.EventName }}</span>

@@ -1,0 +1,55 @@
+
+
+$sizeFactor: 4px;
+
+/***Screen Break Points***/
+$screenXs: 320px;
+$screenSm: 480px;
+$screenMd: 768px;
+$screenLg: 1024px;
+$screenXl: 1280px;
+$screenXxl: 1920px;
+
+/***Font Sizes***/
+$bmsFsxs: 10px;
+$bmsFsSm: 12px;
+$bmsFsMd: 14px;
+$bmsFsLg: 16px;
+
+
+/***Colors***/
+$bmsBlack: #000000;
+$bmsWhite: #ffffff;
+$bmsWarn: #f9a825;
+$bmsError: #e53935;
+$bmsSuccess: #00b248;
+
+$bmsPrimary50: #e0e0e0;
+$bmsPrimary100:#b3b3b3;
+$bmsPrimary200: #808080;
+$bmsPrimary300: #4d4d4d;
+$bmsPrimary400:#262626;
+$bmsPrimary500: $bmsBlack;
+$bmsPrimary600: $bmsBlack;
+$bmsPrimary700: $bmsBlack;
+$bmsPrimary800: $bmsBlack;
+$bmsPrimary900: $bmsBlack;
+$bmsPrimaryA100: #a6a6a6;
+$bmsPrimaryA200:  #8c8c8c;
+$bmsPrimaryA400:  #737373;
+$bmsPrimaryA700: #666666;
+
+$bmsAccent50: #e5f4f3;
+$bmsAccent100:#bee4e1;
+$bmsAccent200: #93d3cd;
+$bmsAccent300: #67c1b8;
+$bmsAccent400:#47b3a9;
+$bmsAccent500: #26a69a;
+$bmsAccent600: #229e92;
+$bmsAccent700: #1c9588;
+$bmsAccent800: #222424;
+$bmsAccent900: #0d7b6c;
+$bmsAccentA100: #adfff3;
+$bmsAccentA200:  #7affec;
+$bmsAccentA400:  #47ffe4;
+$bmsAccentA700: #2dffe0;

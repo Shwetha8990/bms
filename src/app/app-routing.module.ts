@@ -5,13 +5,18 @@ import { Assignment2Component } from './assignment2/assignment2.component';
 
 
 const routes: Routes = [{
-   path: '',
-   component: Assignment1Component
-},{
-  path:'bms',
-  component: Assignment2Component
-}
-];
+  path: '',
+  redirectTo: '/assignment2',
+  pathMatch: 'full'
+},
+{
+  path: 'assignment1',
+  component: Assignment1Component
+},
+{
+  path: 'assignment2',
+  component: Assignment2Component,
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

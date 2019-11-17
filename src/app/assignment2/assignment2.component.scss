@@ -1,5 +1,97 @@
+@import '../../assets/scss/variables';
+
+.mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    button {
+        margin: 0 $sizeFactor*3;
+    }
+
+    .bms-filter {
+        font-size: 0.8rem;
+        color: $bmsAccentA700;
+        margin: 0 $sizeFactor*2;
+    }
+}
 .grid-container {
+    min-height: 100%;
     display: grid;
     grid-gap: 32px;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 32px;
+    justify-items: center;
+    margin-top: 64px;
+
+    .trailer-item{
+        position: absolute;
+        height: 0px;
+        width: 90%;
+        left: 50%;
+        padding: $sizeFactor*8 0;
+        transform: translateX(-50%);
+    }
+
+    .filter-list {
+        grid-column: 1/-1;
+        justify-self: flex-start;
+        font-size: 0.8rem;
+        font-weight: 100;
+
+        mat-chip-list {
+            display: inline-block;
+            margin-left: $sizeFactor*3;
+
+            mat-chip {
+                font-size: inherit;
+                font-weight: inherit;
+            }
+        }
+    }
+
+    .no-movies {
+        width: 100%;
+        text-align: center;
+        grid-column: 1/ -1;
+    }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.movie-container {
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+@media (min-width: $screenXl) and (max-width:$screenXxl) {    
+    .grid-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: $screenLg) and (max-width:$screenXl) {    
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: $screenMd) and (max-width:$screenLg) {    
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: $screenSm) and (max-width:$screenMd) {    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:$screenSm) {    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }

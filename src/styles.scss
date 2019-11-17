@@ -1,4 +1,17 @@
+@import 'assets/scss/theme';
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-size: 16px;
+}
+
+button.small {
+    padding: 0 8px;
+    line-height: 32px;
+    font-size: 0.8rem;
+    font-weight: 100;
+}

@@ -1,5 +1,46 @@
-<div class="grid-container">
-    <div class="grid-itme" *ngFor="let movie of movies">
-        <app-movie-card [movie]="movie"></app-movie-card>
+<mat-toolbar color="primary">
+        <span>Movie Trailers</span>
+        <button mat-flat-button class="small" color="accent">Coming Soon</button>
+        <button mat-flat-button class="small">Now Showing</button>
+        <div class="spacer"></div>
+        <ng-container>
+            <mat-form-field class="bms-filter">
+                <mat-label>Language</mat-label>
+                <mat-select multiple (selectionChange)="onLanguageSelect($event.value)" [value]="selectedLanguage">
+                    <mat-option *ngFor="let language of languages" [value]="language">
+                        {{language}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="bms-filter">
+                <mat-label>Genre</mat-label>
+                <mat-select multiple (selectionChange)="onGenreSelect($event.value)" [value]="selectedGenre">
+                    <mat-option *ngFor="let genre of genres" [value]="genre">
+                        {{genre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+</mat-toolbar>
+
+<div class="grid-container mat-app-background">
+    <div *ngIf="filters.length > 0" class="filter-list">Applied Filers: 
+        <mat-chip-list>
+            <mat-chip *ngFor="let filter of filters" (removed)="removeFilter(filter)">{{ filter.value }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
     </div>
+    <ng-container *ngFor="let movie of movies | keyvalue">
+        <div class="grid-item" (click)="onMovieSelect(movie.value, movieGridItem, movieTrailerItem)" #movieGridItem>
+            <app-movie-card [movie]="movie.value" [selected]="selectedMovie === movie.value"></app-movie-card>
+            <div class="trailer-item" #movieTrailerItem>
+                <ng-container *ngIf="selectedMovie === movie.value">
+                    <app-movie-trailer [movie]="selectedMovie"></app-movie-trailer>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+    <div class="no-movies" *ngIf="!isLoading && !movies">No movies found</div>
 </div>

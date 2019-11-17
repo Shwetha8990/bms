@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="start stretch" fxFill fxLayoutGap="12px">
+    <iframe [src]='getUrl(movie.TrailerURL)' frameborder="0" allowfullscreen fxFlex="60"></iframe>
+
+    <div class="movie-detail" fxFlex>
+        <h2 class="movie-title">{{ movie.EventName }}</h2>
+        <span class="movie-lang">{{ movie.EventLanguage }}</span>
+        <mat-chip-list>
+            <mat-basic-chip *ngFor="let genre of getGenres(movie.EventGenre)">{{ genre }}</mat-basic-chip>
+        </mat-chip-list>
+
+        <section class="movie-info-section" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <div class="movie-info">
+                <mat-icon color="accent">thumb_up</mat-icon>
+                <div>
+                    <span class="bold">{{ movie.wtsPerc }}%</span>
+                    <span class="small">{{ movie.wtsCount }} votes</span>
+                </div>
+            </div>
+            <div class="movie-info">
+                <mat-icon color="accent">calendar_today</mat-icon>
+                <div>
+                    <span class="bold" [innerHtml]="getDate(movie.ShowDate)"></span>
+                    <span class="small" [innerHtml]="getYear(movie.ShowDate)"></span>
+                </div>
+            </div>
+        </section>
+        <section class="movie-vote-section" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+            <div class="vote-yes">
+                <mat-icon>thumb_up</mat-icon>
+                <span>Will watch</span>
+                <span>({{ movie.wtsCount }})</span>
+            </div>
+            <div class="vote-maybe">
+                <mat-icon>help</mat-icon>
+                <span>Maybe</span>
+                <span>({{ movie.maybeCount }})</span>
+            </div>
+            <div class="vote-no">
+                <mat-icon>thumb_down</mat-icon>
+                <span>Wont watch</span>
+                <span>({{ movie.maybeCount }})</span>
+            </div>
+        </section>
+    </div>
+</div>
